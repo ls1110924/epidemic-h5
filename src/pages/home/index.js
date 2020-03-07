@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Input, message } from 'antd'
+import { CityPicker } from '../../components/city-picker'
 import './index.css'
 
 import { trim, isNull } from '../../utils/utils'
@@ -13,9 +14,7 @@ export class HomePage extends React.Component {
             name: '',
             idNum: '',
             phone: '',
-            province: null,
-            city: null,
-            county: null,
+            cities: [],
             temperature: '',
 
             submitting: false
@@ -74,6 +73,16 @@ export class HomePage extends React.Component {
                 </div>
 
                 <div className={"temperature option-row"}>
+                    <span className={"label"}>地区</span>
+                    <div className={"input"}>
+                        <CityPicker
+                            cities={this.state.cities}
+                            placeholder={"请选择当前所在地区"}
+                            onCitySelected={this.onCitySelected} />
+                    </div>
+                </div>
+
+                <div className={"temperature option-row"}>
                     <span className={"label"}>体温</span>
                     <Input className={"input"}
                            size="large"
@@ -123,6 +132,10 @@ export class HomePage extends React.Component {
                 phone
             })
         }
+    }
+
+    onCitySelected = (cities) => {
+        this.setState({ cities })
     }
 
     onTemperatureInputChanged = (e) => {
