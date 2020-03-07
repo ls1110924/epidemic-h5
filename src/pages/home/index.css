@@ -1,0 +1,96 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.option-row {
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+    margin-left: 16px;
+    margin-right: 32px;
+    /*background-color: aquamarine;*/
+}
+
+.label {
+    flex: 1;
+    font-weight: bold;
+    padding-left: 16px;
+}
+
+.input {
+    flex: 3;
+    height: 32px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.submit-container {
+    height: 48px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.submit-btn {
+    flex: 1;
+    height: 32px;
+    border-width: 0;
+    /*background-color: #1890FF;*/
+}
+
+.submit-btn-text {
+    margin-left: 8px;
+}
+
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.status {
+    margin-bottom: 10px;
+}
+
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.kbd-navigation .square:focus {
+    background: #ddd;
+}
+
+
+.game-info {
+    margin-left: 20px;
+}
