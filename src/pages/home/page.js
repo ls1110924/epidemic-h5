@@ -3,8 +3,6 @@ import { Button, Input } from 'antd'
 import { CityPicker } from '../../components/city-picker'
 import './index.css'
 
-import { trim, isNull } from '../../utils/utils'
-
 export class HomePage extends React.Component {
 
     constructor(props) {
@@ -84,26 +82,23 @@ export class HomePage extends React.Component {
     }
 
     onNameInputChanged = (e) => {
-        const name = e && e.target ? trim(e.target.value) : null
-        if (!isNull(name)) {
+        if (e && e.target) {
             const { updateName } = this.props
-            updateName && updateName(name)
+            updateName && updateName(e.target.value)
         }
     }
 
     onIdNumInputChanged = (e) => {
-        const idNum = e && e.target ? trim(e.target.value) : null
-        if (!isNull(idNum)) {
+        if (e && e.target) {
             const { updateIdNum } = this.props
-            updateIdNum && updateIdNum(idNum)
+            updateIdNum && updateIdNum(e.target.value)
         }
     }
 
     onPhoneInputChanged = (e) => {
-        const phone = e && e.target ? trim(e.target.value) : null
-        if (!isNull(phone)) {
+        if (e && e.target) {
             const { updatePhone } = this.props
-            updatePhone && updatePhone(phone)
+            updatePhone && updatePhone(e.target.value)
         }
     }
 
@@ -113,10 +108,9 @@ export class HomePage extends React.Component {
     }
 
     onTemperatureInputChanged = (e) => {
-        const temperature = e && e.target ? trim(e.target.value) : null
-        if (!isNull(temperature)) {
+        if (e && e.target) {
             const { updateTemperature } = this.props
-            updateTemperature && updateTemperature(temperature)
+            updateTemperature && updateTemperature(e.target.value)
         }
     }
 

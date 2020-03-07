@@ -1,5 +1,6 @@
 import { handleActions } from 'redux-actions'
 import { Record } from 'immutable'
+import { isNull, trim } from '../../utils'
 
 export const INIT_HOME_STATE = Record({
     name: '',
@@ -14,19 +15,35 @@ export const INIT_HOME_STATE = Record({
 export default handleActions({
 
     ['home/updateName']: (state, action) => {
-        return state.set('name', action.payload.name)
+        const name = action && action.payload ? action.payload.name : null
+        if (isNull(name)) {
+            return state
+        }
+        return state.set('name', trim(name))
     },
     ['home/updateIdNum']: (state, action) => {
-        return state.set('idNum', action.payload.idNum)
+        const idNum = action && action.payload ? action.payload.idNum : null
+        if (isNull(idNum)) {
+            return state
+        }
+        return state.set('idNum', trim(idNum))
     },
     ['home/updatePhone']: (state, action) => {
-        return state.set('phone', action.payload.phone)
+        const phone = action && action.payload ? action.payload.phone : null
+        if (isNull(phone)) {
+            return state
+        }
+        return state.set('phone', trim(phone))
     },
     ['home/updateArea']: (state, action) => {
         return state.set('area', action.payload.area)
     },
     ['home/updateTemperature']: (state, action) => {
-        return state.set('temperature', action.payload.temperature)
+        const temperature = action && action.payload ? action.payload.temperature : null
+        if (isNull(temperature)) {
+            return state
+        }
+        return state.set('temperature', trim(temperature))
     },
     ['home/clear']: (state) => {
         return state.set('name', '')
