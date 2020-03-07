@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HomePage } from './pages/home'
+import App from './App'
 import 'antd/dist/antd.css'
 import './index.css'
 
 // ========================================
 
 ReactDOM.render(
-    <HomePage />,
+    <App />,
     document.getElementById('root')
 )

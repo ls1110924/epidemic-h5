@@ -8,6 +8,8 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 24px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .option-row {
