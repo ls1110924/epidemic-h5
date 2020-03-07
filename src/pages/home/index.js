@@ -33,11 +33,11 @@ const mapDispatchToProps = (dispatch) => {
         updateTemperature: (temperature) => {
             dispatch(HOME_ACTIONS.updateTemperature(temperature))
         },
-        clear: () => {
-            dispatch(HOME_ACTIONS.clear())
-        },
         toggleSubmitting: (submitting) => {
             dispatch(HOME_ACTIONS.toggleSubmitting(submitting))
+        },
+        submit: () => {
+            dispatch(HOME_ACTIONS.submit())
         }
     }
 }

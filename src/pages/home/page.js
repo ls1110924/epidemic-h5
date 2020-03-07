@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Input, message } from 'antd'
+import { Button, Input } from 'antd'
 import { CityPicker } from '../../components/city-picker'
 import './index.css'
 
@@ -11,76 +11,71 @@ export class HomePage extends React.Component {
         super(props)
     }
 
-    clear = () => {
-        const { clear } = this.props
-        clear && clear()
-    }
-
     render() {
         const { submitting } = this.props
 
         return (
-            <div className="main">
-                <div className="title">疫情防控健康信息填写</div>
+            <div className='main'>
+                <div className='title'>疫情防控健康信息填写</div>
 
-                <div className={"name option-row"}>
-                    <span className={"label"}>姓名</span>
-                    <Input className={"input"}
-                           size="large"
-                           placeholder="请输入姓名"
+                <div className={'name option-row'}>
+                    <span className={'label'}>姓名</span>
+                    <Input className={'input'}
+                           size='large'
+                           placeholder='请输入姓名'
                            maxLength={300}
                            value={this.props.name}
                            onChange={this.onNameInputChanged} />
                 </div>
 
-                <div className={"id-num option-row"}>
-                    <span className={"label"}>身份证号</span>
-                    <Input className={"input"}
-                           size="large"
-                           placeholder="请输入正确的身份证号"
+                <div className={'id-num option-row'}>
+                    <span className={'label'}>身份证号</span>
+                    <Input className={'input'}
+                           size='large'
+                           placeholder='请输入正确的身份证号'
                            maxLength={300}
                            value={this.props.idNum}
                            onChange={this.onIdNumInputChanged} />
                 </div>
 
-                <div className={"phone option-row"}>
-                    <span className={"label"}>手机</span>
-                    <Input className={"input"}
-                           size="large"
-                           placeholder="请输入正确的手机号"
+                <div className={'phone option-row'}>
+                    <span className={'label'}>手机</span>
+                    <Input className={'input'}
+                           size='large'
+                           placeholder='请输入正确的手机号'
                            maxLength={300}
                            value={this.props.phone}
                            onChange={this.onPhoneInputChanged} />
                 </div>
 
-                <div className={"temperature option-row"}>
-                    <span className={"label"}>地区</span>
-                    <div className={"input"}>
+                <div className={'temperature option-row'}>
+                    <span className={'label'}>地区</span>
+                    <div className={'input'}>
                         <CityPicker
                             cities={this.props.area}
-                            placeholder={"请选择当前所在地区"}
+                            placeholder={'请选择当前所在地区'}
                             onCitySelected={this.onCitySelected} />
                     </div>
                 </div>
 
-                <div className={"temperature option-row"}>
-                    <span className={"label"}>体温</span>
-                    <Input className={"input"}
-                           size="large"
-                           placeholder="请输入当前体温"
+                <div className={'temperature option-row'}>
+                    <span className={'label'}>体温</span>
+                    <Input className={'input'}
+                           size='large'
+                           placeholder='请输入当前体温'
                            maxLength={300}
                            value={this.props.temperature}
                            onChange={this.onTemperatureInputChanged} />
                 </div>
 
-                <div className={"submit-container"}>
-                    <Button className={"submit-btn"}
-                            type="primary"
-                            shape={"round"}
-                            size={"large"}
+                <div className={'submit-container'}>
+                    <Button className={'submit-btn'}
+                            type='primary'
+                            shape={'round'}
+                            size={'large'}
                             loading={submitting}
                             onClick={this.onSubmitBtnClick}>
-                        <span className={"submit-btn-text"}>{submitting ? '提交中' : '提交'}</span>
+                        <span className={'submit-btn-text'}>{submitting ? '提交中' : '提交'}</span>
                     </Button>
                 </div>
 
@@ -126,16 +121,8 @@ export class HomePage extends React.Component {
     }
 
     onSubmitBtnClick = () => {
-        const { submitting, toggleSubmitting } = this.props
-        if (!submitting) {
-            toggleSubmitting && toggleSubmitting(true)
-
-            setTimeout(() => {
-                message.info('This is a normal message')
-                this.clear()
-                toggleSubmitting && toggleSubmitting(false)
-            }, 2000)
-        }
+        const { submit } = this.props
+        submit && submit()
     }
 
 }

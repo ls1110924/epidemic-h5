@@ -21,5 +21,8 @@ export const HOME_ACTIONS = createActions({
     },
     toggleSubmitting: (submitting) => {
         return { submitting }
+    },
+    submit: () => {
+        return {}
     }
 }, { prefix: 'home' })

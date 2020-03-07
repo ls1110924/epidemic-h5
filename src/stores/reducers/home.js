@@ -13,29 +13,29 @@ export const INIT_HOME_STATE = Record({
 
 export default handleActions({
 
-    ["home/updateName"]: (state, action) => {
+    ['home/updateName']: (state, action) => {
         return state.set('name', action.payload.name)
     },
-    ["home/updateIdNum"]: (state, action) => {
+    ['home/updateIdNum']: (state, action) => {
         return state.set('idNum', action.payload.idNum)
     },
-    ["home/updatePhone"]: (state, action) => {
+    ['home/updatePhone']: (state, action) => {
         return state.set('phone', action.payload.phone)
     },
-    ["home/updateArea"]: (state, action) => {
+    ['home/updateArea']: (state, action) => {
         return state.set('area', action.payload.area)
     },
-    ["home/updateTemperature"]: (state, action) => {
+    ['home/updateTemperature']: (state, action) => {
         return state.set('temperature', action.payload.temperature)
     },
-    ["home/clear"]: (state) => {
+    ['home/clear']: (state) => {
         return state.set('name', '')
             .set('idNum', '')
             .set('phone', '')
             .set('area', [])
             .set('temperature', '')
     },
-    ["home/toggleSubmitting"]: (state, action) => {
+    ['home/toggleSubmitting']: (state, action) => {
         return state.set('submitting', action.payload.submitting)
     },
 }, INIT_HOME_STATE)

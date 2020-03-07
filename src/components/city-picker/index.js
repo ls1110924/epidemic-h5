@@ -8,7 +8,7 @@ export class CityPicker extends React.Component {
     render() {
         return (
             <Cascader
-                className={"city-picker"}
+                className={'city-picker'}
                 placeholder={this.props.placeholder}
                 options={cityOptions}
                 value={this.props.cities}
