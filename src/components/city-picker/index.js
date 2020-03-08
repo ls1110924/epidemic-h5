@@ -1,6 +1,6 @@
 import React from 'react'
 import { Cascader } from 'antd'
-import './index.css'
+import './style.css'
 import { cityOptions } from './constants'
 
 export class CityPicker extends React.Component {

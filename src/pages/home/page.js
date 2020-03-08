@@ -1,6 +1,7 @@
 import React from 'react'
-import { Button, Input } from 'antd'
+import { Button } from 'antd'
 import { CityPicker } from '../../components/city-picker'
+import { RowInput } from '../../components/row-input'
 import './style.css'
 
 export class HomePage extends React.Component {
@@ -16,35 +17,23 @@ export class HomePage extends React.Component {
             <div className='main'>
                 <div className='title'>疫情防控健康信息填写</div>
 
-                <div className={'name option-row'}>
-                    <span className={'label'}>姓名</span>
-                    <Input className={'input'}
-                           size='large'
-                           placeholder='请输入姓名'
-                           maxLength={300}
-                           value={this.props.name}
-                           onChange={this.onNameInputChanged} />
-                </div>
+                <RowInput label={'姓名'}
+                          placeholder={'请输入姓名'}
+                          maxLength={10}
+                          value={this.props.name}
+                          onInputChanged={this.props.updateName} />
 
-                <div className={'id-num option-row'}>
-                    <span className={'label'}>身份证号</span>
-                    <Input className={'input'}
-                           size='large'
-                           placeholder='请输入正确的身份证号'
-                           maxLength={300}
-                           value={this.props.idNum}
-                           onChange={this.onIdNumInputChanged} />
-                </div>
+                <RowInput label={'身份证号'}
+                          placeholder={'请输入正确的身份证号'}
+                          maxLength={18}
+                          value={this.props.idNum}
+                          onInputChanged={this.props.updateIdNum} />
 
-                <div className={'phone option-row'}>
-                    <span className={'label'}>手机</span>
-                    <Input className={'input'}
-                           size='large'
-                           placeholder='请输入正确的手机号'
-                           maxLength={300}
-                           value={this.props.phone}
-                           onChange={this.onPhoneInputChanged} />
-                </div>
+                <RowInput label={'手机'}
+                          placeholder={'请输入正确的手机号'}
+                          maxLength={11}
+                          value={this.props.phone}
+                          onInputChanged={this.props.updatePhone} />
 
                 <div className={'temperature option-row'}>
                     <span className={'label'}>地区</span>
@@ -56,15 +45,11 @@ export class HomePage extends React.Component {
                     </div>
                 </div>
 
-                <div className={'temperature option-row'}>
-                    <span className={'label'}>体温</span>
-                    <Input className={'input'}
-                           size='large'
-                           placeholder='请输入当前体温'
-                           maxLength={300}
-                           value={this.props.temperature}
-                           onChange={this.onTemperatureInputChanged} />
-                </div>
+                <RowInput label={'体温'}
+                          placeholder={'请输入当前体温'}
+                          maxLength={5}
+                          value={this.props.temperature}
+                          onInputChanged={this.props.updateTemperature} />
 
                 <div className={'submit-container'}>
                     <Button className={'submit-btn'}
@@ -81,37 +66,9 @@ export class HomePage extends React.Component {
         )
     }
 
-    onNameInputChanged = (e) => {
-        if (e && e.target) {
-            const { updateName } = this.props
-            updateName && updateName(e.target.value)
-        }
-    }
-
-    onIdNumInputChanged = (e) => {
-        if (e && e.target) {
-            const { updateIdNum } = this.props
-            updateIdNum && updateIdNum(e.target.value)
-        }
-    }
-
-    onPhoneInputChanged = (e) => {
-        if (e && e.target) {
-            const { updatePhone } = this.props
-            updatePhone && updatePhone(e.target.value)
-        }
-    }
-
     onCitySelected = (area) => {
         const { updateArea } = this.props
         updateArea && updateArea(area)
-    }
-
-    onTemperatureInputChanged = (e) => {
-        if (e && e.target) {
-            const { updateTemperature } = this.props
-            updateTemperature && updateTemperature(e.target.value)
-        }
     }
 
     onSubmitBtnClick = () => {
