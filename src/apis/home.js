@@ -1,18 +1,12 @@
-// import $ from 'jquery'
+import axios from './axios';
 
 export async function submit(form) {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve(MOCK_RESULT)
-        }, 2000)
-    })
-
-    // return new Promise((resolve, reject) => {
-    //     $.getJSON('http://www.baidu.com/index.php?tn=myie2dg&ch=5', {}, function (data) {
-    //         console.log(data)
-    //         resolve(data)
-    //     })
+    // return new Promise(resolve => {
+    //     setTimeout(() => {
+    //         resolve(MOCK_RESULT)
+    //     }, 2000)
     // })
+    return axios.post('/proxy/api/epidemic/submit', form )
 }
 
 const MOCK_RESULT = {

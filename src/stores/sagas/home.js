@@ -37,7 +37,7 @@ function* handleSubmit() {
         if (!(PHONE_REG.test(phone))) {
             throw new Error('请输入正确的手机号')
         }
-        if (isEmptyStr(area)) {
+        if (isNull(area) || area.length !== 3) {
             throw new Error('请选择当前所在地区')
         }
         if (isEmptyStr(temperature)) {
@@ -54,15 +54,15 @@ function* handleSubmit() {
             throw new Error('体温填写错误，需35° ~ 42°')
         }
 
-        const result = yield call(submit, { name, idNum, phone, area, temperature })
-        if (result.code === 0) {
+        const result = yield call(submit, { name, idNum, phone, area: area[2], temperature })
+        if (result) {
             message.info('提交成功')
+
+            yield put(HOME_ACTIONS.clear())
+            yield put(HOME_ACTIONS.toggleSubmitting(false))
         } else {
             throw new Error(result.message || '提交失败，请稍候重试')
         }
-
-        yield put(HOME_ACTIONS.clear())
-        yield put(HOME_ACTIONS.toggleSubmitting(false))
     } catch (e) {
         if (e.message) {
             message.info(e.message)
