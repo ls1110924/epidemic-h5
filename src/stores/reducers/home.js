@@ -54,5 +54,5 @@ export default handleActions({
     },
     ['home/toggleSubmitting']: (state, action) => {
         return state.set('submitting', action.payload.submitting)
-    },
+    }
 }, INIT_HOME_STATE)

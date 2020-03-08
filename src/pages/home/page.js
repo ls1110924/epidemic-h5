@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Input } from 'antd'
 import { CityPicker } from '../../components/city-picker'
-import './index.css'
+import './style.css'
 
 export class HomePage extends React.Component {
 

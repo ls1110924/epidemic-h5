@@ -12,7 +12,6 @@ export const isNull = (v) => {
  * 是否为空字符串
  *
  * @param v
- * @param fuzzy 是否模糊检测。默认模糊检查。模糊检测时会把null、undefined认为空字符串
  */
 export const isEmptyStr = (v) => {
     return isNull(v) || v.length === 0
