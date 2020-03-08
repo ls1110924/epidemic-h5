@@ -54,7 +54,7 @@ function* handleSubmit() {
             throw new Error('体温填写错误，需35° ~ 42°')
         }
 
-        const result = yield call(submit, { name, idNum, phone, area: area[2], temperature })
+        const result = yield call(submit, { name, idNum, phone, area, temperature })
         if (result) {
             message.info('提交成功')
 
