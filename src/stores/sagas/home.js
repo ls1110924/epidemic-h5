@@ -1,7 +1,7 @@
 import { all, put, select, takeLatest } from 'redux-saga/effects'
 import { message } from 'antd'
 import { HOME_ACTIONS } from '../actions'
-import { isEmptyStr, PHONE_REG, ID_NUM_REG, TEMPERATURE_REG } from '../../utils'
+import { isNull, isEmptyStr, PHONE_REG, ID_NUM_REG, TEMPERATURE_REG } from '../../utils'
 
 function* handleSubmit() {
     try {
@@ -44,6 +44,13 @@ function* handleSubmit() {
         }
         if (!TEMPERATURE_REG.test(temperature)) {
             throw new Error('请输入正确的体温数字')
+        }
+        const temper = parseFloat(temperature)
+        if (isNaN(temper) || isNull(temper)) {
+            throw new Error('请输入正确的体温数字')
+        }
+        if(temper < 35 || temper > 42) {
+            throw new Error('体温填写错误，需35° ~ 42°')
         }
 
         // TODO 网络请求
